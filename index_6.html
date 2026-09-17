@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erland Ordoñez — Engineering &amp; Technology Consultant</title>
+<meta name="description" content="Erland Ordoñez — end-to-end software and IT infrastructure consultant. From discovery and architecture to build and validation, backed by a network of specialized partners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f8fa;
+    --surface:#ffffff;
+    --surface-alt:#f0f2f5;
+    --border:#e2e5ea;
+    --text:#1b2430;
+    --text-soft:#4b5563;
+    --text-faint:#8a93a3;
+    --accent:#1d4ed8;
+    --accent-soft:#e8edfc;
+    --accent-dark:#122d75;
+    --gold:#b8892f;
+    --radius:14px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,248,250,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-0.01em;}
+  .brand span{color:var(--accent);}
+  nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;}
+  nav ul li a{color:var(--text-soft);font-weight:500;font-size:0.92rem;}
+  nav ul li a:hover{color:var(--accent);text-decoration:none;}
+  .nav-cta{
+    background:var(--accent);color:#fff;padding:9px 18px;border-radius:999px;
+    font-weight:600;font-size:0.88rem;white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--accent-dark);text-decoration:none;}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text);}
+
+  /* HERO */
+  .hero{padding:86px 0 70px;}
+  .hero-inner{display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent-soft);color:var(--accent-dark);
+    padding:6px 14px;border-radius:999px;font-size:0.82rem;font-weight:600;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#22c55e;}
+  h1.hero-title{font-size:2.85rem;line-height:1.1;margin:0 0 20px;letter-spacing:-0.02em;}
+  h1.hero-title em{font-style:normal;color:var(--accent);}
+  .hero-sub{font-size:1.15rem;color:var(--text-soft);max-width:580px;margin:0 0 30px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:10px;font-weight:600;font-size:0.95rem;
+    border:1px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);text-decoration:none;}
+  .btn-ghost{background:var(--surface);color:var(--text);border-color:var(--border);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+
+  .hero-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:28px;box-shadow:0 20px 40px -24px rgba(20,30,60,0.18);
+  }
+  .hero-photo{
+    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;
+    margin-bottom:22px;display:block;
+  }
+  .hero-card h3{margin:0 0 14px;font-size:1rem;font-weight:700;}
+  .hero-stat{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+  .hero-stat:last-child{border-bottom:none;}
+  .hero-stat b{color:var(--accent-dark);text-align:right;}
+
+  /* SECTION SHARED */
+  section{padding:74px 0;}
+  .section-head{max-width:680px;margin-bottom:44px;}
+  .kicker{
+    text-transform:uppercase;letter-spacing:0.12em;font-size:0.76rem;font-weight:700;
+    color:var(--gold);margin-bottom:10px;
+  }
+  h2.section-title{font-size:2rem;margin:0 0 12px;letter-spacing:-0.01em;}
+  .section-desc{color:var(--text-soft);font-size:1.02rem;}
+
+  section:nth-of-type(even){background:var(--surface);}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .about-col p{color:var(--text-soft);margin:0 0 16px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .pill{
+    background:var(--surface-alt);border:1px solid var(--border);
+    padding:7px 14px;border-radius:999px;font-size:0.85rem;font-weight:500;color:var(--text-soft);
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative;padding-left:28px;border-left:2px solid var(--border);}
+  .tl-item{position:relative;margin-bottom:36px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{
+    content:'';position:absolute;left:-34px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--accent-soft);
+  }
+  .tl-item.venture::before{background:var(--gold);border-color:#f6ecd4;}
+  .tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;align-items:baseline;margin-bottom:6px;}
+  .tl-role{font-weight:700;font-size:1.08rem;}
+  .tl-date{color:var(--text-faint);font-size:0.85rem;font-weight:600;white-space:nowrap;}
+  .tl-org{color:var(--accent-dark);font-weight:600;font-size:0.92rem;margin-bottom:10px;}
+  .tl-org.venture-org{color:var(--gold);}
+  .tl-list{margin:0;padding-left:18px;color:var(--text-soft);font-size:0.94rem;}
+  .tl-list li{margin-bottom:6px;}
+  .tl-badge{
+    display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.05em;background:#f6ecd4;color:#8a6416;padding:3px 8px;border-radius:5px;
+    margin-left:8px;vertical-align:middle;
+  }
+
+  /* PROJECTS */
+  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .project-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;display:flex;flex-direction:column;gap:14px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .project-card:hover{transform:translateY(-4px);box-shadow:0 16px 30px -20px rgba(20,30,60,0.25);}
+  .project-tag{
+    align-self:flex-start;background:var(--accent-soft);color:var(--accent-dark);
+    font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+    padding:5px 10px;border-radius:6px;
+  }
+  .project-card h3{margin:0;font-size:1.15rem;}
+  .project-card p{margin:0;color:var(--text-soft);font-size:0.92rem;}
+  .project-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px;border-top:1px solid var(--border);}
+  .tech-chip{font-size:0.72rem;background:var(--surface-alt);border-radius:6px;padding:4px 8px;color:var(--text-soft);font-weight:500;}
+  .project-link{font-size:0.85rem;font-weight:600;margin-top:2px;}
+
+  /* PROCESS */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .process-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;}
+  .process-num{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--accent-soft);font-weight:600;-webkit-text-stroke:1.5px var(--accent);color:transparent;display:block;margin-bottom:10px;}
+  .process-card h3{margin:0 0 8px;font-size:1rem;}
+  .process-card p{margin:0;color:var(--text-soft);font-size:0.86rem;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .skill-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;
+  }
+  .skill-card h3{margin:0 0 14px;font-size:0.95rem;display:flex;align-items:center;gap:8px;}
+  .skill-card h3 .ic{color:var(--accent);}
+  .skill-card ul{margin:0;padding:0;list-style:none;font-size:0.85rem;color:var(--text-soft);}
+  .skill-card li{padding:4px 0;border-bottom:1px dashed var(--border);}
+  .skill-card li:last-child{border-bottom:none;}
+
+  /* PARTNERS */
+  .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .partner-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;
+  }
+  .partner-card .p-tag{
+    display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+    color:var(--text-faint);margin-bottom:10px;
+  }
+  .partner-card h3{margin:0 0 8px;font-size:1.05rem;}
+  .partner-card p{margin:0;color:var(--text-soft);font-size:0.88rem;}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+  .edu-card .edu-year{color:var(--text-faint);font-size:0.8rem;font-weight:600;}
+  .edu-card h3{margin:2px 0 2px;font-size:0.98rem;}
+  .edu-card p{margin:0;color:var(--text-soft);font-size:0.85rem;}
+
+  /* CONTACT */
+  .contact-box{
+    background:linear-gradient(135deg,var(--accent-dark),var(--accent));
+    border-radius:20px;padding:52px;color:#fff;
+    display:grid;grid-template-columns:1.3fr 0.7fr;gap:32px;align-items:center;
+  }
+  .contact-box h2{color:#fff;margin:0 0 12px;font-size:1.8rem;}
+  .contact-box p{color:rgba(255,255,255,0.82);margin:0;max-width:480px;}
+  .contact-links{display:flex;flex-direction:column;gap:12px;}
+  .contact-link{
+    display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.1);
+    padding:13px 18px;border-radius:10px;color:#fff;font-weight:600;font-size:0.92rem;
+    border:1px solid rgba(255,255,255,0.18);
+  }
+  .contact-link:hover{background:rgba(255,255,255,0.18);text-decoration:none;}
+  .contact-link .ic{font-size:1.1rem;}
+
+  footer{padding:32px 0;text-align:center;color:var(--text-faint);font-size:0.85rem;}
+
+  /* NOTE BANNER */
+  .fillin-note{
+    background:#fff7e6;border:1px solid #f0d999;color:#7a5c00;
+    font-size:0.82rem;padding:10px 16px;border-radius:8px;margin-top:10px;
+  }
+
+  @media (max-width: 880px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .hero-inner{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .project-grid{grid-template-columns:1fr 1fr;}
+    .process-grid{grid-template-columns:1fr 1fr;}
+    .skills-grid{grid-template-columns:1fr 1fr;}
+    .partner-grid{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .contact-box{grid-template-columns:1fr;padding:36px 24px;}
+  }
+  @media (max-width: 560px){
+    .project-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    h1.hero-title{font-size:2.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">Erland Ordoñez<span>.</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Capabilities</a></li>
+      <li><a href="#partners">Partners</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start a conversation</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="kicker" style="margin-bottom:22px;">Consulting Engagements — Costa Rica</div>
+      <h1 class="hero-title">The engineer behind the idea — from <em>whiteboard to working system</em></h1>
+      <p class="hero-sub">
+        You don't need to understand how it works — you need it to work, on time, and exactly
+        as agreed. Your time is the scarcest resource in this conversation, so I take the
+        problem, solve it end to end, and remain the one person accountable for the result.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">See what I've built</a>
+        <a href="#contact" class="btn btn-ghost">Start a conversation</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="erland-headshot.jpg" alt="Erland Ordoñez" class="hero-photo">
+      <h3>At a glance</h3>
+      <div class="hero-stat"><span>Experience</span><b>12+ years, IT &amp; software</b></div>
+      <div class="hero-stat"><span>Core strengths</span><b>Full-stack dev · IT infra · Product ownership</b></div>
+      <div class="hero-stat"><span>Enterprise background</span><b>Microsoft · Rythmia · Banco Central de CR</b></div>
+      <div class="hero-stat"><span>Own ventures</span><b>RABCE Herramientas · DITSEK · Pacifik Blue</b></div>
+      <div class="hero-stat"><span>Partner network</span><b>IT Gurus · Aria.Net &amp; more</b></div>
+      <div class="hero-stat"><span>Location</span><b>Guanacaste, Costa Rica</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">About</div>
+      <h2 class="section-title">A complete engineer, not just an "AI guy".</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-col">
+        <p>
+          My background covers the full stack of what it takes to run technology for a business:
+          I started writing software for banks and government institutions, spent nearly a
+          decade inside Microsoft's Dynamics 365 and Power Platform ecosystem solving deep
+          technical customizations at an escalation level, and today I manage IT and network
+          infrastructure for an international organization while running my own product and
+          equipment businesses on the side.
+        </p>
+        <p>
+          That combination is deliberate. It means I can sit in a discovery conversation and
+          speak infrastructure, integration, data, and product strategy in the same sentence —
+          then go build it myself, or direct the right specialist to do it, and verify the result
+          actually holds up in production.
+        </p>
+      </div>
+      <div class="about-col">
+        <p>
+          I work best with clients who want a technology partner for the whole arc of a project:
+          framing the problem correctly, designing a solution that fits the business (not just
+          the trend), implementing it, and proving it performs as designed before calling it done.
+        </p>
+        <p>
+          Where a project needs depth I don't carry in-house — specialized IT infrastructure
+          deployments, licensed enterprise software implementations, or other specialized
+          services — I bring in trusted partners I've worked with directly, so the engagement
+          stays high-quality without me pretending to be a generalist at everything.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Discovery &amp; solution design</span>
+          <span class="pill">Full-stack development</span>
+          <span class="pill">IT &amp; network infrastructure</span>
+          <span class="pill">Enterprise platforms (Dynamics 365 / Power Platform / Azure)</span>
+          <span class="pill">Delivery validation &amp; QA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How I work</div>
+      <h2 class="section-title">The same discipline, every engagement.</h2>
+      <p class="section-desc">Whether it's a SaaS product, an internal platform, or an
+        infrastructure overhaul, the process doesn't change.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="process-num">01</span>
+        <h3>Discuss the idea</h3>
+        <p>Understand the real business problem before proposing a solution — not the other
+          way around.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-num">02</span>
+        <h3>Design the structure</h3>
+        <p>Architecture, data model, and integrations laid out before a single line of
+          production code.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-num">03</span>
+        <h3>Build it</h3>
+        <p>Hands-on implementation — directly, or coordinated with the right specialist
+          partner for the piece that needs one.</p>
+      </div>
+      <div class="process-card">
+        <span class="process-num">04</span>
+        <h3>Verify it works</h3>
+        <p>Test and validate against the original design before handing it over — not just
+          "it runs".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Experience</div>
+      <h2 class="section-title">Where this capability was built.</h2>
+      <p class="section-desc">A track record across enterprise support, IT infrastructure
+        management, software development, and founding my own technology ventures.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item venture">
+        <div class="tl-head">
+          <span class="tl-role">Founder <span class="tl-badge">Own venture</span></span>
+          <span class="tl-date">2023 — Present</span>
+        </div>
+        <div class="tl-org venture-org">RABCE Herramientas S.R.L. · Paraíso, Guanacaste</div>
+        <ul class="tl-list">
+          <li>Founded and run a construction equipment rental and sales business, and designed
+            and built its custom management platform (React/TypeScript, Node.js, PostgreSQL)
+            for contracts, rentals, pricing, and reporting.</li>
+          <li>Led the legal contract framework, SEO, and web presence for the business end
+            to end.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">IT Site Manager</span>
+          <span class="tl-date">2023 — 2025</span>
+        </div>
+        <div class="tl-org">Rythmia Life Advancement Center · Costa Rica</div>
+        <ul class="tl-list">
+          <li>Own IT and network infrastructure management, projects, and incident resolution
+            for the organization, reporting to the IT Global Team.</li>
+          <li>Proposed and led a full infrastructure migration from unmanaged to managed
+            devices — switches, firewall, access points, and fiber optics — to raise the
+            reliability and quality of the end-user experience.</li>
+          <li>People manager for the IT support team; also owns vendor management and
+            contract negotiation for IT service providers.</li>
+        </ul>
+      </div>      
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Customer Support Engineer</span>
+          <span class="tl-date">2017 — 2023</span>
+        </div>
+        <div class="tl-org">Microsoft · Costa Rica</div>
+        <ul class="tl-list">
+          <li>Delivered deep technical support at a Tier 2 / escalation level for Dynamics 365
+            CRM customizations — Dataverse, plugins, API/SDK calls, JavaScript, and Azure
+            Pipelines.</li>
+          <li>Managed cross-region escalation and critical-incident handoffs between Europe,
+            North America, and Asia-Pacific support teams.</li>
+          <li>Worked two years with the Power Platform team, driving customer
+            experience and incident resolution for Power Apps, Power Automate, and Power
+            Virtual Agents; recognized SME for the Power Automate Dataverse Connector
+            integration.</li>
+          <li>Built an internal management tool on Power Automate, SharePoint, Microsoft Forms,
+            and Dataverse to run the team's training request process.</li>          
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Software Developer</span>
+          <span class="tl-date">2016 — 2017</span>
+        </div>
+        <div class="tl-org">Novacomp · Costa Rica (outsourced to Intel Corporation)</div>
+        <ul class="tl-list">
+          <li>Developed internal automation and communication tools using C#, HTML5, jQuery,
+            SQL Server, and MVC, working with globally distributed teams under Agile/Scrum.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Software Developer</span>
+          <span class="tl-date">2014 — 2016</span>
+        </div>
+        <div class="tl-org">Lidersoft · Costa Rica</div>
+        <ul class="tl-list">
+          <li>Built accounting software for high-confidentiality government contracts,
+            including Banco Popular and Bomberos de Costa Rica, using C#, SQL Server, and
+            Team Foundation Services.</li>
+          <li>Worked directly with clients to translate critical financial processes into
+            software requirements, including the CORE project for Banco Popular.</li>
+        </ul>
+      </div>   
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Featured Projects</div>
+      <h2 class="section-title">Products I've designed, built, and shipped.</h2>
+      <p class="section-desc">A selection of platforms currently running in production for real
+        businesses and customers.</p>
+    </div>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <span class="project-tag">SaaS · In Beta</span>
+        <h3>Pacifik Blue</h3>
+        <p>A B2B SaaS platform for pool maintenance technicians and companies in Costa Rica,
+          with an offline-first field app for technicians and a read-only portal for pool
+          owners. Currently in production beta with real users.</p>
+        <div class="project-meta">
+          <span class="tech-chip">Next.js 14</span>
+          <span class="tech-chip">TypeScript</span>
+          <span class="tech-chip">Supabase</span>
+          <span class="tech-chip">PWA / Offline-first</span>
+          <span class="tech-chip">Vitest + Playwright</span>
+        </div>
+        <a class="project-link" href="https://pacifikblue.com" target="_blank" rel="noopener">pacifikblue.com →</a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">Internal Platform</span>
+        <h3>RABCE Management Platform</h3>
+        <p>A custom-built operations platform for RABCE Herramientas covering contracts, rental
+          extensions, document numbering, pricing administration, and reporting — with a
+          full automated test suite.</p>
+        <div class="project-meta">
+          <span class="tech-chip">React / TypeScript</span>
+          <span class="tech-chip">Node.js / Express</span>
+          <span class="tech-chip">Drizzle ORM</span>
+          <span class="tech-chip">PostgreSQL</span>
+        </div>
+        <span class="project-link">133 passing tests</span>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">Web &amp; SEO</span>
+        <h3>rabce.com</h3>
+        <p>The public-facing website for RABCE Herramientas, built with structured data,
+          canonical tags, Open Graph metadata, and a keyword-driven SEO strategy for local
+          search visibility.</p>
+        <div class="project-meta">
+          <span class="tech-chip">Static HTML/CSS</span>
+          <span class="tech-chip">Schema.org</span>
+          <span class="tech-chip">Technical SEO</span>
+        </div>
+        <a class="project-link" href="https://rabce.com" target="_blank" rel="noopener">rabce.com →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Technical Capabilities</div>
+      <h2 class="section-title">Breadth across the stack, not just one layer of it.</h2>
+      <p class="section-desc">Enterprise platform depth, modern product development, and the
+        infrastructure knowledge to make it all run reliably.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3><span class="ic">◆</span> Product &amp; Web Development</h3>
+        <ul>
+          <li>React &amp; Next.js</li>
+          <li>TypeScript / JavaScript</li>
+          <li>Node.js / Express</li>
+          <li>Tailwind CSS · PWA</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="ic">◆</span> Data &amp; Backend</h3>
+        <ul>
+          <li>PostgreSQL · SQL Server</li>
+          <li>Drizzle ORM · Dataverse</li>
+          <li>Supabase</li>
+          <li>Kusto Queries (KQL)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="ic">◆</span> Microsoft Enterprise Stack</h3>
+        <ul>
+          <li>Dynamics 365 CRM (config &amp; customization)</li>
+          <li>Power Apps · Power Automate · Power Virtual Agent</li>
+          <li>Azure (Active Directory, Pipelines)</li>
+          <li>C# · SharePoint · PowerShell</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="ic">◆</span> IT &amp; Network Infrastructure</h3>
+        <ul>
+          <li>Managed switches, firewalls &amp; access points</li>
+          <li>Fiber optics &amp; network migrations</li>
+          <li>Fiddler / network tracing &amp; debugging</li>
+          <li>IT vendor &amp; contract management</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="ic">◆</span> Delivery &amp; QA</h3>
+        <ul>
+          <li>Agile / Scrum delivery</li>
+          <li>Automated testing (Vitest, Playwright)</li>
+          <li>Technical Project Management</li>
+          <li>Escalation &amp; incident management</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3><span class="ic">◆</span> Business &amp; Leadership</h3>
+        <ul>
+          <li>People management</li>
+          <li>Product &amp; SaaS strategy</li>
+          <li>Supplier negotiation &amp; import logistics</li>
+          <li>Contract &amp; legal frameworks</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Partner Network</div>
+      <h2 class="section-title">I don't have to be the expert in everything — I know who is.</h2>
+      <p class="section-desc">For scopes that call for dedicated specialists, I coordinate a
+        vetted network of partners so the engagement stays high-quality end to end, with me
+        as the single point of accountability.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="partner-card">
+        <span class="p-tag">IT Infrastructure</span>
+        <h3>IT Gurus</h3>
+        <p>Partner for IT infrastructure implementation — networking, hardware, and managed
+          deployments — for projects that need dedicated infrastructure capacity.</p>
+      </div>
+      <div class="partner-card">
+        <span class="p-tag">Licensed Software Solutions</span>
+        <h3>Aria Solutions</h3>
+        <p>Michigan, USA-based experts in integral licensed software solutions, brought in for
+          projects requiring enterprise-licensed platforms and integrations.</p>
+      </div>
+      <div class="partner-card">
+        <span class="p-tag">Extended Network</span>
+        <h3>Additional Specialists</h3>
+        <p>Access to a broader network of vetted providers across complementary services,
+          engaged as each project's scope requires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Education &amp; Certifications</div>
+      <h2 class="section-title">Formal foundation behind the hands-on experience.</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2013</div>
+        <h3>Bachelor of Software Engineering</h3>
+        <p>Universidad Nacional</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2023</div>
+        <h3>Technical Project Management</h3>
+        <p>Lead University</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2019 – 2022</div>
+        <h3>Microsoft Certifications</h3>
+        <p>Dynamics 365 (2019) · Power Platform (2020) · Azure Fundamentals (2022)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <h2>Let's talk about what you're building.</h2>
+        <p>Open to consulting engagements and partnership opportunities — from a focused
+          technical build to a full solution coordinated across my partner network.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:erlandcrf@gmail.com"><span class="ic">✉</span> erlandcrf@gmail.com</a>
+        <a class="contact-link" href="https://wa.me/50685985807" target="_blank" rel="noopener"><span class="ic">💬</span> +506 8598-5807 (WhatsApp)</a>
+        <a class="contact-link" href="#" target="_blank" rel="noopener"><span class="ic">in</span> LinkedIn</a>
+      </div>
+    </div>
+    <div class="fillin-note wrap" style="margin-top:16px;max-width:1080px;">
+      ⚠️ Add your LinkedIn profile URL to the contact link above before publishing —
+      search this file for <code>id="linkedin-link"</code> or the placeholder <code>href="#"</code>
+      inside <code>#contact</code>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Erland Ordoñez. Built with care.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
